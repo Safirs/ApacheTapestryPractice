@@ -50,7 +50,7 @@
         <t:body />
         <hr />
         <footer>
-            <p>&copy; Your Company ${year}</p>
+            <p>&copy; Furniture factory ${year}</p>
         </footer>
     </div>
 </div>

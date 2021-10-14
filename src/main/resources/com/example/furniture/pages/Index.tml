@@ -12,29 +12,19 @@
         	${message:javascript_required}
     	</noscript>   
 	
-		 <!--	 <t:beaneditform t:id="addfurniture" object="newFurniture"></t:beaneditform>      -->
-  <div class="create">
-          
-                <t:pagelink id="link" page="About">Create new item</t:pagelink>
-            
+  	<div class="create">
+                <t:pagelink id="link" page="About">Create new item</t:pagelink>    
      </div>
  
 	<div class="eg">
         <t:form t:id="filterCriteria" async="true" class="form-inline" style="padding-bottom: 10px;">
-        
-            <!-- On change of a Select, we do an javascript click of an invisible submit button.
-                Note: do not use "this.form.performSubmit()" because on an AJAX Form it fails in Firefox. -->
-    
-
      		<div class="form-group">
                 	<t:label for="type"/>
                 	<t:select t:id="type" model="typeList" value="type" onchange="document.getElementById('filterSubmit').click()" secure="never"/>
         	 </div>
     		<div class="form-group">
                     <t:textfield t:id="productName" t:mixins="autocomplete" onkeyup="document.getElementById('filterSubmit').click()" style="margin-left: 10px;"/>
-             </div>
-    		<!--	<input type="text" class="form-control" id="search" style="margin-left: 10px;" placeholder="Search..."></input>  -->
-  			
+             </div>  			
      
             <div class="form-group">
                <t:submit t:id="filterSubmit" id="filterSubmit" style="display: none;"/>
@@ -57,7 +47,6 @@
         
          <t:zone t:id="modalZone" id="modalExampleModalZone">
 
-            <t:if test="isFunction('update')">
                 <div class="modal fade" tabindex="-1" role="dialog" id="${furnitureUpdateModalId}" aria-labelledby="myModalLabel" aria-hidden="true">  
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -67,62 +56,22 @@
          						 <span aria-hidden="true">&times;</span>
         						</button>
       						</div>
-                            <div class="modal-body">
-                           <!--     <t:ajaxcomponentscrud.FurnitureUpdate t:id="furnitureUpdate" furnitureId="furnitureId"/>   -->
-                                
-                                <t:beaneditform t:id="furnitureEditForm" object="furniture" submitLabel="Save">           
+                            <div class="modal-body">                                
+                                <t:beaneditform t:id="furnitureEditForm" object="furniture" submitLabel="Save">    
+                                	<p:type>
+          								<t:label for="type"/>
+              							<t:select model="typeList" value="furniture.type" secure="never"/>   
+            						</p:type>       
         						</t:beaneditform>        						
         
                             </div>  
                         </div>
                     </div>  
                 </div> 
-            </t:if>
+            
         
         </t:zone>
     </div>
-	
-    
-<!-- Main hero unit for a primary marketing message or call to action -->
-<div class="row hero-unit">
-    <p>
-        <img src="${asset:context:images/tapestry.png}" alt="${message:greeting}" title="${message:greeting}" width="550" height="230"/>
-    </p>
-    <h1>${message:greeting}</h1>
-    <p>The current time is: <strong>${currentTime}</strong></p>
-    <p>
-        This is a template for a simple marketing or informational website. It includes a large callout called
-        the hero unit and three supporting pieces of content. Use it as a starting point to create something
-        more unique.
-    </p>
-    <p><t:actionlink t:id="learnmore" class="btn btn-primary btn-large">Learn more &raquo;</t:actionlink></p>
-</div>
 
-<!-- Example row of columns -->
-<div class="row">
-    <div class="span4">
-        <h2>Normal link</h2>
-        <p>Clink the bottom link and the page refresh with event <code>complete</code></p>
-        <p><t:eventlink event="complete" class="btn btn-default">Complete&raquo;</t:eventlink></p>
-    </div>
-
-    <t:zone t:id="middlezone" class="span4">
-    </t:zone>
-
-    <div class="span4">
-        <h2>Ajax link</h2>
-        <p>Click the bottom link to update just the middle column with Ajax call with event <code>ajax</code></p>
-        <p><t:eventlink event="ajax" zone="middlezone" class="btn btn-default">Ajax&raquo;</t:eventlink></p>
-    </div>
-</div>
-
-<t:block t:id="block">
-    <h2>Ajax updated</h2>
-    <p>I'v been updated through AJAX call</p>
-    <p>The current time is: <strong>${currentTime}</strong></p>
-</t:block>
-
-
-    
 </body>
 </html>

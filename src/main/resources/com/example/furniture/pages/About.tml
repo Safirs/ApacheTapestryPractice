@@ -10,24 +10,13 @@
         <t:beaneditform t:id="add" id="add" object="furniture" submitLabel="Save">
           	<p:type>
           		<t:label for="type"/>
-              <t:select t:id="type" model="typeList" value="type"/>   
+              	<t:select t:id="type" model="typeList" value="furniture.type" secure="never"/>   
             </p:type>
+            
         </t:beaneditform>
     </div>  
 
  	<t:pagelink id="link" page="Index">Return To furniture list</t:pagelink>
-
-<t:if test="learn">
-    <div class="row">
-        <div class="span12">
-            <p>
-                To learn more go to
-                <a href="https://tapestry.apache.org">Tapestry home</a>
-                and start typing...
-            </p>
-        </div>
-    </div>
-</t:if>
 
 
 </html>

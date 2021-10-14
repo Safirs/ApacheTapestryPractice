@@ -26,13 +26,13 @@ import org.apache.tapestry5.beaneditor.Validate;
 public class Furniture implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@NonVisual
 	public Long id;
 
 	@Column(name = "type")
 	@NotNull
-	@Pattern(regexp = "^(Chair|Table)$", message = "Type must be Chair or Table")
+//	@Pattern(regexp = "^(Chair|Table)$", message = "Type must be Chair or Table")
 	public String type;
 
 	@Column(name = "name")
